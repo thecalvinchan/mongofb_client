@@ -2,7 +2,7 @@
   "name": "mongoFB",
   "version": "0.0.1",
   "description": "An interactive client for using the mongoFB datastore",
-  "main": "shell.js",
+  "main": "mongofb.js",
   "directories": {
     "test": "test"
   },
@@ -17,7 +17,6 @@
     "node"
   ],
   "author": "Calvin Chan",
-  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/thecalvinchan/mongofb_client/issues"
   }
