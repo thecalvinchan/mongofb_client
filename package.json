@@ -1,5 +1,5 @@
 {
-  "name": "mongoFB",
+  "name": "mongofb",
   "version": "0.0.1",
   "description": "An interactive client for using the mongoFB datastore",
   "main": "mongofb.js",

@@ -24,7 +24,12 @@ fs.readFile(config, 'utf8', function(err, data) {
             if (query === 'quit') {
                 done();
             }
-            http.get('http://mongofb.herokuapp.com/testquery?api_key='+conf.api+'&query='+query, function (res) {
+            var options = {
+                hostname: 'mongofb.herokuapp.com',
+                path: '/api/v1?api_key='+conf.api+'&query='+query,
+                method: 'GET'
+            };
+            var req = http.request(options, function(res) {
                 res.setEncoding('utf8');
                 res.on('data', function(data) {
                     process.stdout.write(data);
@@ -32,9 +37,14 @@ fs.readFile(config, 'utf8', function(err, data) {
                     process.stdout.write('\n');
                     rl.prompt();
                 });
-            }).on('error', function(e) {
+            });
+
+            req.on('error', function(e) {
                 console.log(e.message);
             });
+
+            req.end();
+
         }).on('close', function() {
             console.log('Terminated');
             process.exit();
